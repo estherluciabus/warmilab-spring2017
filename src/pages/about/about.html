@@ -13,8 +13,8 @@
     <img src="assets/img/Esther.jpg" class="avatar"/>
   </div>
   <div text-center class="headline">
-    <h2>Esther Bustamante</h2>
-    <p>Estudiante</p>
+    <h2>{{datos.nombre}}</h2>
+    <p>{{datos.ocupacion}}</p>
     <!-- pon tu nombre aqui -->
   </div>
   <!-- lista de datos a partir de aqui -->
@@ -24,28 +24,28 @@
         <ion-list no-lines>
           <ion-item>
              <ion-icon name="flag" item-start></ion-icon>
-            <h3>Origen</h3>
-            <p>Lima , Peru
+            <h3>{{origen1.titulo_origen}}</h3>
+            <p>{{origen1.origen}}
             </p>
           </ion-item>
           <ion-item>
             <ion-icon name="mail" item-start></ion-icon>
-              <h3>E-mail</h3>
-              <p>estherluciabus@gmail.com
+              <h3>{{origen1.titulo_Email}}</h3>
+              <p>{{origen1.email}}
               </p>
           </ion-item>
           <ion-item>
             <ion-icon name="phone-portrait" item-start></ion-icon>
-            <h3>Telefono</h3>
+            <h3>{{origen1.titulo_telefono}}</h3>
             <p>
-              937825848
+              {{origen1.telefono}}
             </p>
           </ion-item>
         </ion-list>
       </ion-slide>
       <ion-slide>
         <p>
-          Hola soy Esther
+          Hola soy Esther, tengo {{datos.edad}} años
         </p>
       </ion-slide>
     </ion-slides>
