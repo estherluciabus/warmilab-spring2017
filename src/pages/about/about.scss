@@ -3,9 +3,12 @@ page-about {
   .banner {
 
     .background {
+      opacity: 0.5 ;
 
     }
     .avatar {
+      border-radius: 50%;
+      height: 120px;
 
     }
   }
@@ -14,7 +17,7 @@ page-about {
   }
 
   ion-slides {
-    
+
   }
 
 }
