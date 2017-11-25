@@ -17,15 +17,26 @@ datos: any = {
   edad:15
 };
 
-origen1:any ={
-   titulo_origen:"Origen",
-   origen:"Lima,Peru",
-   titulo_Email:"E-mail",
-   email:"estherluciabus@gmail.com",
-   titulo_telefono:"Telefono",
-   telefono:937825848
+informacion: any[] =[
+ {
+   titulo:"Origen",
+   dato:"Lima,Peru",
+   icono:"flag"
+ },
+ {
+  titulo:"E-mail",
+  dato:"estherluciabus@gmail.com",
+  icono:"mail"
+ },
+ {
+   titulo:"Telefono",
+   dato:"937825848",
+   icono:"call"
+ },
+];
 
-};
+
+
 
   constructor(public navCtrl: NavController) {
 
