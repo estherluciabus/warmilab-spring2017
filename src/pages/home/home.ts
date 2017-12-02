@@ -47,7 +47,19 @@ export class HomePage implements OnInit {
     private todoService: TodoService) {}
 
   ngOnInit() {
-    // codigo al iniciar el componente
+    // cdigo al iniciar el componente
+    this.agregarQuehacer("Limpiar la cocina",false);
+    this.agregarQuehacer("Estudiar",false);
+    this.agregarQuehacer("Encontrar el libro de Albert Camus",true);
+  }
+
+  agregarQuehacer(nuevoQuehacer: string , terminado: boolean) {
+    if (nuevoQuehacer !==""){
+      this.quehaceres.push({
+        description: nuevoQuehacer,
+        done:terminado
+      });
+    }
   }
 
   addTodo(todo: string) {

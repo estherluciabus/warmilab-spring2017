@@ -6,6 +6,15 @@
 
 <ion-content>
   <!-- el componente para ingrear un nuevo TODO aqui -->
+<div>
+  <ion-item>
+    <ion-label>nuevo quehacer</ion-label>
+    <ion-input type="text" #quehacerInput></ion-input>
+  </ion-item>
+</div>
+<div padding>
+<button ion-button block (click)="agregarQuehacer(quehacerInput.value,false)">agregar</button>
+</div>
 
   <!-- la lista de TODOs aqui -->
   <div>
