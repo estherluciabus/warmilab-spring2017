@@ -29,18 +29,26 @@ export class HomePage implements OnInit {
       done:false
     }
   ];
-  buttons = [
+  botones: any[]= [
     {
-      type: 'done',
-      class: ''
-    }, {
-      type: 'pending',
-      class: ''
-    }, {
-      type: 'all',
-      class: ''
+      color:"secondary",
+      grande:false,
+      texto:"terminados"
+    },
+   {
+      color :"danger",
+      grande:false,
+      texto: "pendientes",
+    },
+    {
+      color:"dark",
+      grande:true,
+      texto:"todos"
     }
+
   ];
+
+  filtro = "todos";
 
   constructor(
     public navCtrl: NavController,
@@ -53,6 +61,16 @@ export class HomePage implements OnInit {
     this.agregarQuehacer("Encontrar el libro de Albert Camus",true);
   }
 
+  listarQuehaceres() {
+    if (this.filtro === "todos"){
+      return this.quehaceres ;
+   } else if (this.filtro==="pendientes") {
+     return this.quehaceres.filter(quehacer => !quehacer.done);
+   } else if (this.filtro ==="terminados"){
+     return this.quehaceres.filter(quehacer => quehacer.done)
+     }
+  }
+
   agregarQuehacer(nuevoQuehacer: string , terminado: boolean) {
     if (nuevoQuehacer !==""){
       this.quehaceres.push({
@@ -61,40 +79,25 @@ export class HomePage implements OnInit {
       });
     }
   }
+  filtrarquehacer(texto:string) {
+    if (texto === "terminados") {
+    this.filtro = "terminados";
+    this.botones[0].grande = true ;
+    this.botones[1].grande=true;
+    this.botones[2].grande=false;
 
-  addTodo(todo: string) {
-    // codigo para agregar TODO
-  }
+    }else if (texto === "pendientes"){
+    this.filtro = "pendientes";
+    this.botones[0].grande=false;
+    this.botones[1].grande=true;
+    this.botones[2].grande=false;
 
-  updateTodo(todo: any) {
-    // codigo para actualizar TODO
-  }
-
-  showDone() {
-    // mostrar los TODOs terminados
-  }
-
-  showPending() {
-    // mostrar los TODOs pendientes
-  }
-
-  showAll() {
-    // mostrar todos los TODOs
-  }
-
-  private remapButtons(type: string) {
-    return this.buttons.map(b => {
-      if (b.type === type) {
-        b.class = 'button-large-md';
-      } else {
-        b.class = '';
-      }
-      return b;
-    });
-  }
-
-  buttonClass(type: string) {
-    return this.buttons.filter(b => b.type === type)[0].class;
+  } else if (texto =="todos"){
+    this.filtro ="todos";
+    this.botones[0].grande = false ;
+    this.botones[1].grande = false;
+    this.botones[2].grande = true ;
+    }
   }
 
 }
